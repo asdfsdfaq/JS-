@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 情况1 settimeout + function this===>window
+        // 情况2 settimeout + 箭头函数 this===>上层作用域的this
+        // setTimeout(function(){
+        //     console.log(this);
+        // },100)
+        // function fn(){
+        //     setTimeout(function(){
+        //         console.log(this);
+        //     },100)
+        // }
+       // fn.call({x:100})//window
+
+        // 情况2 指向上层作用域的this
+        // class Obj{
+        //     fn(){
+        //         setTimeout(()=>{
+        //             console.log(this);
+        //         },100)
+        //     }
+        // }
+        // let o = new Obj()
+        // o.fn()
+
+        function fn(){
+            setTimeout(()=>{
+                console.log(this);
+            })
+        }
+        fn.call({x:200})
+    </script>
+</body>
+</html>

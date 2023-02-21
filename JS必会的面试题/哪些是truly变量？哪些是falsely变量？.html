@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //truly变量：两次取反后结果是true就是truly变量
+        //falsely变量：两次取反后结果是false就是falsely变量
+        /*
+            空字符串
+            数字0
+            null
+            undefined
+            NaN
+            注：以上全是falsely变量，其余的全是truly变量 
+        */
+        console.log(!!"" === false);
+        console.log(!!NaN === false);
+        console.log(!!0 === false);
+        console.log(!!undefined === false);
+        console.log(!!null === false);
+    </script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //声明类
+        class Proson{
+            constructor(name,age){
+                this.name=name;
+                this.age = age
+            }
+            sayHello(){
+                console.log(`你好${this.name}`);
+            }
+        }
+        //继承父级类
+        class Student extends Proson{
+            //继承父级类子级的constructor中必须要有父级的参数，也可以有自己的参数和方法
+            constructor(name,age,sex){
+                //super方法 调用父级类
+                super(name,age)
+                this.sex = sex
+            }
+            fn(){
+                console.log(`你好${this.name}${this.sex}`);
+            }
+        }
+        //实例化
+        let zhangsan = new Student("zhangsan",18,"男")
+        zhangsan.sayHello()
+        zhangsan.fn()
+        //instanceof方法用来判断一个构造函数的prototype属性是否在另一个要检测对象的原型链上
+        console.log(zhangsan instanceof Proson);//true
+        console.log(zhangsan instanceof Student);//true
+        console.log(zhangsan instanceof Object);//true
+        console.log(Proson instanceof Object);//true
+        console.log(zhangsan instanceof Array);//false
+    </script>
+</body>
+</html>

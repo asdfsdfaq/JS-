@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // call apply bind this指向
+        //情况1 this===>window
+        function a (){
+            console.log(this);
+        }
+       //a.call()//window
+       //a.call(undefined)//window
+       //a.call(null)//window
+       //情况2 传什么this就指向什么
+        let fn =  a.bind({x:101})
+        fn()
+        a.apply("")
+        a.call(123)
+    </script>
+</body>
+</html>
