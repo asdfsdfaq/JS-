@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 情况1 函数被当成参数被返回
+    //     function fn(){
+    //         const a = 100
+    //         return function(){
+    //             console.log(a);
+    //         }
+    //     }
+    //     const a = 500
+    //    const cd = fn()
+    //    cd()
+        // 情况2：函数被当做参数传递
+        // function fn(cd){
+        //     const a= 100
+        //     cd()
+        // } 
+        // const a = 500
+        // fn(function (){
+        //     console.log(a);//500 向外层作用域找
+        // })
+        //情况3 自执行匿名函数
+        (function(index){
+            console.log(index);
+        })(10)
+    </script>
+</body>
+</html>

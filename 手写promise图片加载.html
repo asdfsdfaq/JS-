@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <script>
+        // 第一种写法
+        // const op = new Promise((resolve,reject)=>{
+        //     const img = new Image()
+        //     img.src = "https://robohash.org/1"
+        //     img.onload = ()=>{
+        //         resolve(img)
+        //     }
+        //     img.onerror = ()=>{
+        //         reject("图片加载失败")
+        //     }
+        // })
+        // op.then((res)=>{
+        //     document.body.append(res)
+        // }).catch((rej)=>{
+        //     console.log(rej);
+        // })
+        // 第二种写法
+        // function loadImg(oimg) {
+        //    return new Promise((resolve, reject) => {
+        //         const img = new Image()
+        //         img.src = oimg
+        //         img.onload = () => {
+        //             resolve(img)
+        //         }
+        //         img.onerror = () => {
+        //             reject("图片加载失败")
+        //         }
+        //     })
+        // }
+        // loadImg("https://robohash.org/1").then((res) => {
+        //     document.body.appendChild(res)
+        //     return loadImg("https://robohash.org/2")
+        // }).then((res)=>{
+        //     document.body.append(res)
+        // })
+        // .catch((rej) => {
+        //     console.log(rej);
+        // })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        // 第三种 async....await
+        function loadImg(src){
+            return new Promise((resolve,reject)=>{
+                const img = new Image()
+                img.src = src
+                img.onload = ()=>{
+                    resolve(img)
+                }
+                img.onerror = ()=>{
+                    reject("图片加载错误")
+                }
+            })
+        }
+
+        (async function(){
+            try{
+                const oimg = await loadImg("https://robohash.org/1")
+                document.body.appendChild(oimg)
+                const oimg2 = await loadImg("https://robohash.org/2")
+                document.body.appendChild(oimg2)
+            }catch(e){
+                console.log(e);
+            }
+        })()
+    </script>
+</body>
+
+</html>

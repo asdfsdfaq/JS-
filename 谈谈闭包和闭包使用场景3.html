@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>闭包隐藏变量</title>
+</head>
+<body>
+    <script>
+        function fn(){
+            const data = {}
+            return {
+                set:function(key,val){
+                    data[key] = val
+                },
+                get:function(val){
+                    return data[val]
+                }
+            }
+        }
+        //隐藏了变量data 在外层作用域中无法调用data
+        let json = fn()
+        json.set("hello",111)
+        json.get("hello")
+        console.log(json.get("hello"));
+    </script>
+</body>
+</html>
