@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let arr = [100,5,20,3,200,6]
+        console.log(getMax(arr));
+        // 第一种方法：Math.max()
+        // function getMax(arr){
+        //     return Math.max(...arr)
+        // }
+        // 第二种方法 array.sort()方法
+        // function getMax(arr){
+        // sort()函数是js内置的一个数组排序函数。默认可以接收一个函数，返回值是比较两个数的相对顺序的值。
+        //     arr.sort((n1,n2)=>{
+        //         return n2 - n1
+        //     })
+        //     return arr[0]
+        // }
+        // 第三种方法 array.reduce方法
+        // reduce接收两个参数
+        // 参数1 当前回调函数返回的数据
+        // 参数2 当前元素
+        function getMax(arr){
+            return arr.reduce((n1,n2)=>{
+                return n1>n2? n1:n2
+            })
+        }
+    </script>
+</body>
+</html>

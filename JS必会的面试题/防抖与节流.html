@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    div{
+        width: 200px;
+        height: 200px;
+        background-color: #ccc;
+    }
+</style>
+<body>
+    <input type="text">
+    <div draggable="true">
+
+    </div>
+    <script>
+        // const inp = document.querySelector("input")
+        const div = document.querySelector("div")
+        // inp.addEventListener("keyup",debounce(function(){
+        //     console.log(inp.value,"去后台取值");
+        // }))
+        // function debounce(fn){
+        //     let timer  = null
+
+        //     return function(){
+        //         if(timer) clearTimeout(timer)
+        //         timer = setTimeout(() => {
+        //                 fn.call(this,arguments)      
+        //                 timer = null              
+        //         }, 1000);
+        //     }
+        // }
+        div.addEventListener("darg",throttle(function(e){
+            console.log(e.clientX);
+        }))
+        function throttle(fn){
+            let timer= null
+            return function(){
+                if(timer) return
+                timer = setTimeout(() => {
+                   fn.apply(this,arguments) 
+                }, 1000);
+            }
+        }
+    </script>
+</body>
+
+</html>

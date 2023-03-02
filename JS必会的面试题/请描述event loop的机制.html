@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 代码执行顺序：从左到右 从上到下
+        // 如果有一行报错 后面代码不执行
+        // 先执行同步代码 再执行异步代码
+
+        //event loop过程
+        // 1.同步代码 一行一行放在call stack(调用栈)中执行
+        // 2.遇到异步 会先记录下代码 先将异步代码放入到webAPI中 等待执行时机(settimeout ajax)时机到了 将之前的代码放入callback queue(回调函数队列)
+        // 3.当call stack为空 （同步diamante执行完）event loop开始工作
+        // 4.event loop轮询查找 是否有可执行的代码 如果有将代码移动到 call stack中执行
+        // 5.event loop如果没有找到可以执行的代码 则会继续轮询查找
+        console.log("stark");
+        setTimeout(()=>{
+            console.log("settimeout");
+        },2000)
+        console.log("end");
+    </script>
+</body>
+</html>

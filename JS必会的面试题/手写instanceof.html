@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        class Proson {
+            constructor(name, age) {
+                this.name = name
+                this.age = age
+            }
+        }
+        class Student extends Proson {
+            constructor(name, age, sex) {
+                super(name, age)
+                this.sex = sex
+            }
+        }
+        let zhangsan = new Student("zhangsan", 18, "男")
+        function myInstanceof(obj1, obj2) {
+            let objproto = obj1.__proto__//记录传进来的实例对象的__proto__属性
+            while (true) {
+                // 如果 传进来的实例对象的__proto__属性 === null 就证明不在一个原型链上直接返回false
+                if (objproto === null) {
+                    return false
+                } else if (objproto === obj2.prototype) { //如果实例对象的__proto__属性 === 构造函数的prototype属性直接返回true
+                    return true
+                }
+                // 继续向上找 每次循环完把新的__proto__属性赋值给变量
+                objproto = objproto.__proto__
+            }
+        }
+        console.log(myInstanceof(zhangsan, Object));
+        console.log(myInstanceof(zhangsan,Proson));
+        console.log(zhangsan);
+
+
+
+        // //手写instanceof
+        // function myInstanceof(obj1,obj2){
+        //     let obj1proto = obj1.__proto__
+        //     while(true){
+        //         if(obj1proto === null){
+        //             return false
+        //         }else if(obj1proto === obj2.prototype){
+        //             return true
+        //         }
+        //         obj1proto = obj1proto.__proto__
+        //     }
+        // }
+        // console.log(myInstanceof(zhangsan,Object));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>

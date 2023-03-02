@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=\, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function fn(a, b, c) {
+            console.log(this);
+            console.log(a, b, c);
+            return "this is fun"
+        }
+        // let cc = fn.bind({x:100})
+        // console.log(cc());
+        //手写bind
+        Function.prototype.mybind =function(){
+            let fn = this
+            let arg = Array.prototype.slice.call(arguments)
+            let _this = arg.shift()
+            return function(){
+                return fn.apply(_this,arg)
+            }
+        }
+        const cb = fn.mybind({x:200,y:200},1,2,3)
+        cb()
+        console.log(cb());
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    //     function fn(a,b,c){
+    //         console.log(this);
+    //         console.log(a,b,c);
+    //         return "this is fun"
+    //     }
+    //     Function.prototype.mybind = function(){
+    //         let arg = Array.prototype.slice.call(arguments)
+    //         let _this = arg.shift()
+    //         return function(){
+    //             return fn.apply(_this,arg)
+    //         }
+    //     }
+    //    let cd = fn.mybind({x:100},1,2,3)
+    //    cd()
+    //    console.log(cd());
+    </script>
+</body>
+
+</html>
